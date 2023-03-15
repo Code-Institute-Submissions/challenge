@@ -1,25 +1,41 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from "../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div className="App">
       <Navbar className={styles.NavBar} expand="sm" fixed="top">
         <Container>
-          <Navbar.Brand>(WebsiteName)</Navbar.Brand>
+          <NavLink to="/">
+            <Navbar.Brand className={styles.HeaderFont}>Website</Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto text-start">
-              <Nav.Link>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/"
+                exact
+              >
                 <i className="fas fa-home"></i> Home
-              </Nav.Link>
-              <Nav.Link>
+              </NavLink>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/signin"
+              >
                 <i className="fas fa-sign-in-alt"></i> Sign In
-              </Nav.Link>
-              <Nav.Link>
+              </NavLink>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/signup"
+              >
                 <i className="fas fa-user-plus"></i> Sign Up
-              </Nav.Link>
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

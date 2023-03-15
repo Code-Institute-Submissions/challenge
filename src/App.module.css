@@ -3,3 +3,39 @@
     background-color: #AC70A7;
     min-height: 100vh;
 }
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Bungee Shade', cursive;
+}
+.Main{
+    padding-top: 81px;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #000000;
+    transition: color ease-in-out 0.3s;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: #AC70A7;
+  }
+  
+  a:hover i {
+    color: #AC70A7;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: #000000;
+    padding: 5px;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #AC70A7;
+  }

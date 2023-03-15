@@ -4,3 +4,16 @@
     padding: 10px;
     box-shadow: 0px 10px #242323;
 }
+
+.NavLink{
+    padding: 5px;
+}
+
+.Active i{
+    color: #AC70A7;
+}
+
+.HeaderFont{
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.6rem;
+}
