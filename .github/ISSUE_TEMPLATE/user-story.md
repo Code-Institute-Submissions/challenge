@@ -7,4 +7,4 @@ assignees: ''
 
 ---
 
-As a **[persona]**, I **[want to]**, **[so that]**.
+As a ** persona **, I can **  **, so that ** **.
