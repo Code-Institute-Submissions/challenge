@@ -20,7 +20,7 @@ function GroupCreateForm() {
   const [groupData, setGroupData] = useState({
     title: "",
     category: "",
-    tags: "",
+    tags: [],
   });
 
   const { title, category, tags } = groupData;
@@ -80,13 +80,13 @@ function GroupCreateForm() {
           value={category}
           onChange={handleChange}
         >
-          <option value="ETC">Other</option>
-          <option value="SPI">Spiritual</option>
-          <option value="FIN">Financial</option>
-          <option value="CAR">Career</option>
-          <option value="INT">Intellectual</option>
-          <option value="FIT">Fitness</option>
-          <option value="SOC">Social</option>
+          <option value="Other">Other</option>
+          <option value="Spiritual">Spiritual</option>
+          <option value="Financial">Financial</option>
+          <option value="Career">Career</option>
+          <option value="Intellectual">Intellectual</option>
+          <option value="Fitness">Fitness</option>
+          <option value="Social">Social</option>
         </Form.Control>
       </Form.Group>
       {errors.category?.map((message, idx) => (

@@ -10,6 +10,8 @@ import Group from "./Group";
 import NoResults from "../../assets/no-results.png";
 import Assets from "../../components/Assets";
 import styles from "../../styles/GroupsPage.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function GroupsPage(message, filter = "") {
   const [groups, setGroups] = useState({ results: [] });
@@ -50,9 +52,15 @@ function GroupsPage(message, filter = "") {
         {hasLoaded ? (
           <>
             {groups.results.length ? (
-              groups.results.map((group) => (
-                <Group key={group.id} {...group} setGroups={setGroups} />
-              ))
+              <InfiniteScroll
+                children={groups.results.map((group) => (
+                  <Group key={group.id} {...group} setGroups={setGroups} />
+                ))}
+                dataLength={groups.results.length}
+                loader={<Assets spinner />}
+                hasMore={!!groups.next}
+                next={() => fetchMoreData(groups, setGroups)}
+              />
             ) : (
               <Container>
                 <Assets src={NoResults} message={message} />
