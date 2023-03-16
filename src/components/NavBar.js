@@ -30,23 +30,16 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/feed"
-      >
-        Your Feed
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/submissions"
       >
-        Submissions
+        Submissions to Review
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/challenges"
       >
-        Challenges
+        Your Challenges
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -113,7 +106,7 @@ const NavBar = () => {
                 to="/"
                 exact
               >
-                Discover
+                Groups
               </NavLink>
               {currentUser ? loggedInLinks : loggedOutLinks}
             </Nav>

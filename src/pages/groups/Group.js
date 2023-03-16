@@ -80,13 +80,14 @@ const Group = (props) => {
     <Card className={cardStyles.Card}>
       <Card.Header>
         <Media className="">
+          {/* follow unfollow from here aswell */}
           <Link to={`/profiles/${profile_id}`}>
             {owner}
             <Avatar src={profile_image} height={20} />
           </Link>
           {/*Have created at, and updated at as a tooltip, indication that it has
           been updated */}
-          <span>{updated_at}</span>
+          <span>{updated_at} - </span>
           <span>{created_at}</span>
           <span>{is_owner && "edit"}</span>
         </Media>
@@ -96,7 +97,7 @@ const Group = (props) => {
           {title && <Card.Title>{title}</Card.Title>}
         </Link>
         {/*tags should be linkable to search, individually listed here, styled*/}
-        <span>{category}</span>
+        <span>{category}- </span>
         <span>{tags}</span>
 
         <div>
