@@ -6,6 +6,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import GroupCreateForm from "./pages/groups/GroupCreateForm";
+import GroupPage from "./pages/groups/GroupPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             path="/groups/create"
             render={() => <GroupCreateForm />}
           />
+          <Route exact path="/groups/:id" render={() => <GroupPage />} />
           <Route
             render={() => (
               <>
