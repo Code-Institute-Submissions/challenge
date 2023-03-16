@@ -7,14 +7,25 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import GroupCreateForm from "./pages/groups/GroupCreateForm";
 import GroupPage from "./pages/groups/GroupPage";
+import GroupsPage from "./pages/groups/GroupsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home Page</h1>} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <GroupsPage message="No results found for your search" />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route
