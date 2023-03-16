@@ -9,16 +9,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Group from "./Group";
 import NoResults from "../../assets/no-results.png";
 import Assets from "../../components/Assets";
+import styles from "../../styles/GroupsPage.module.css";
 
 function GroupsPage(message, filter = "") {
   const [groups, setGroups] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const { data } = await axiosReq.get(`/groups/?${filter}`);
+        const { data } = await axiosReq.get(`/groups/?search=${query}`);
         setGroups(data);
         setHasLoaded(true);
       } catch (err) {
@@ -26,12 +29,24 @@ function GroupsPage(message, filter = "") {
       }
     };
     setHasLoaded(false);
-    fetchGroups();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchGroups();
+    }, 1000);
+  }, [query, pathname]);
 
   return (
     <Row>
       <Col>
+        <i className={`fas fa-search ${styles.SearchIcon}`}></i>
+        <Form className={styles.SearcBar} onSubmit={(e) => e.preventDefault()}>
+          <Form.Control
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            placeholder="search groups"
+            className={`mb-2 ${styles.FromControl}`}
+          />
+        </Form>
         {hasLoaded ? (
           <>
             {groups.results.length ? (
