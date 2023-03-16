@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import appStyles from "../../App.module.css";
 import cardStyles from "../../styles/Card.module.css";
 
 import {
@@ -21,11 +20,10 @@ function GroupCreateForm() {
   const [groupData, setGroupData] = useState({
     title: "",
     category: "",
-    description: "",
     tags: "",
   });
 
-  const { title, category, description, tags } = groupData;
+  const { title, category, tags } = groupData;
 
   const history = useHistory();
 
@@ -42,7 +40,6 @@ function GroupCreateForm() {
 
     formData.append("title", title);
     formData.append("category", category);
-    formData.append("description", description);
     formData.append("tags", tags);
 
     try {
@@ -93,24 +90,6 @@ function GroupCreateForm() {
         </Form.Control>
       </Form.Group>
       {errors.category?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label className="">
-          <h5 className="mb-0 mt-2">Description:</h5>
-        </Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="description"
-          placeholder="ex.: A group for all marathon lovers, weekly challenges"
-          value={description}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.description?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
