@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { Col, Row, Container, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Col, Row, Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+
 import { axiosReq } from "../../api/axiosDefaults";
 
-import appStyles from "../../App.module.css";
-import cardStyle from "../../styles/Card.module.css";
+import Group from "./Group";
 
 function GroupPage() {
   const { id } = useParams();
@@ -28,12 +28,8 @@ function GroupPage() {
   return (
     <Row className="h-100">
       <Col>
-        <Card className={cardStyle.Card}>
-          <p>Group component</p>
-        </Card>
-        <Card className={cardStyle.Card}>
-          <Container>Challenges</Container>
-        </Card>
+        <Group {...group.results[0]} setGroups={setGroup} groupPage />
+        <Container>Challenges</Container>
       </Col>
     </Row>
   );
