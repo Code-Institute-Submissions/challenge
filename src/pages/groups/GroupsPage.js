@@ -13,7 +13,7 @@ import styles from "../../styles/GroupsPage.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-function GroupsPage(message, filter = "") {
+function GroupsPage({message, filter = ""}) {
   const [groups, setGroups] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
